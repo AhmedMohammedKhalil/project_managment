@@ -1,5 +1,5 @@
 @extends('users.layout',['page_name'=>'تعديل كتاب'])
 
 @section('section')
-    <livewire:user.book.edit :book_id="$book_id"/>
+    <livewire:user.project.edit :project_id="$project_id"/>
 @endsection

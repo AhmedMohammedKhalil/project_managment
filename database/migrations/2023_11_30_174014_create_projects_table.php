@@ -14,17 +14,14 @@ return new class extends Migration
         Schema::create('projects', function (Blueprint $table) {
             $table->increments('id');
             $table->string('title');
-            $table->string('author')->nullable();
-            $table->string('isbn')->nullable();
-            $table->string('image')->nullable();
-            $table->string('classification_number');
-            $table->string('pages_number')->nullable();
-            $table->string('book_height')->nullable();
-            $table->text('publishing_house')->nullable();
-            $table->text('publishing_location')->nullable();
-            $table->text('publishing_year')->nullable();
-            $table->text('printer_number')->nullable();
-            $table->text('subject');
+            $table->date('start_date');
+            $table->date('end_date');
+            $table->text('short_description');
+            $table->string('phase');
+            $table->integer('uid')->unsigned();
+            $table->foreign('uid')
+                ->references('id')->on('users')
+                ->onDelete('cascade')->onUpdate('cascade');
 
             $table->timestamps();
         });

@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Hash;
 class Register extends Component
 {
     use WithFileUploads;
-    public $name, $email,$civil_number, $image, $password,$phone, $confirm_password, $user_id;
+    public $username, $email, $password, $confirm_password, $user_id;
 
 
     protected $messages = [
@@ -35,21 +35,12 @@ class Register extends Component
     ];
 
     protected $rules = [
-        'name' => ['required', 'string', 'max:50'],
-        'phone' => ['required','regex:/^([0-9\s\-\+\(\)]*)$/','min:8','max:8'],
+        'username' => ['required', 'string', 'max:50'],
         'email'   => ['required', 'email', "unique:users,email"],
-        'civil_number'   => ['required', 'min:12','max:12','regex:/^([0-9\s\-\+\(\)]*)$/', "unique:users,civil_number"],
         'password' => ['required','min:8'],
         'confirm_password' => ['required','min:8', 'same:password']
 
     ];
-
-    public function updatedImage()
-    {
-        $validatedata = $this->validate(
-            ['image' => ['image', 'mimes:jpeg,jpg,png', 'max:2048']]
-        );
-    }
 
     public function register()
     {
@@ -58,15 +49,7 @@ class Register extends Component
             $validatedata,
             ['password' => Hash::make($this->password)]
         );
-        if (!$this->image)
-            User::create($validatedata);
-        if ($this->image) {
-            $this->updatedImage();
-            $imagename = $this->image->getClientOriginalName();
-            $user = User::create(array_merge($validatedata, ['image' => $imagename]));
-            ImageStore::store('assets/images/users/'.$user->id,$this->image,$imagename);
-            File::deleteDirectory(public_path('livewire-tmp'));
-        }
+        User::create($validatedata);
         if(Auth::guard('user')->attempt(['email' => $this->email,'password' => $this->password])){
 
             session()->flash('message', "تم دخولك ينجاح");

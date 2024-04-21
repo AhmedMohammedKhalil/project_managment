@@ -14,18 +14,16 @@ class Project extends Model
 
     protected $fillable = [
         'title',
-        'author',
-        'isbn',
-        'classification_number',
-        'pages_number',
-        'project_height',
-        'publishing_house',
-        'publishing_location',
-        'publishing_year',
-        'printer_number',
-        'subject',
-        'image'
+        'start_date',
+        'end_date',
+        'short_description',
+        'phase',
+        'uid',
     ];
 
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 
 }

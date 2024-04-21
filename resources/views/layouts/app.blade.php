@@ -167,18 +167,18 @@
 
                         <ul class="navbar-nav m-auto">
 
-                            @auth('admin')
+                            @auth('user')
                                 <li class="nav-item">
                                     <a href="#" class="nav-link">
-                                        {{ Auth::guard('admin')->user()->name }}
+                                        {{ Auth::guard('user')->user()->name }}
                                         <i class="bx bx-chevron-down"></i>
                                     </a>
                                     <ul class="dropdown-menu">
                                         <li class="nav-item">
-                                            <a href="{{ route('admin.dashboard') }}" class="nav-link">لوحة التحكم</a>
+                                            <a href="{{ route('user.dashboard') }}" class="nav-link">لوحة التحكم</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="{{ route('admin.logout') }}" class="nav-link">خروج</a>
+                                            <a href="{{ route('user.logout') }}" class="nav-link">خروج</a>
                                         </li>
 
                                     </ul>

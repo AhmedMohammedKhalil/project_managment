@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', 'HomeController@index')->name('home');
-Route::get('/book', 'HomeController@showProject')->name('show-project');
+Route::get('/project', 'HomeController@showProject')->name('show-project');
 Route::get('/search', 'HomeController@search')->name('search');
 
 Route::middleware(['guest:user'])->group(function () {
