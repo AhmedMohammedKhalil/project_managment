@@ -1,28 +1,28 @@
 
-@if($this->books == "")
+@if($this->projects == "")
 <section>
-    <section class="courses-area-three ptb-100 jarallax" data-jarallax='{"speed": 0.3}'>
+    <section class="courses-area-three ptb-100 jarallax" data-jarallax='{"speed": 0.3}' style="background-image: unset">
         <div class="container">
             <div class="section-title white-title">
-                <h2>الكتب</h2>
-                <img src="{{ asset('img/section-title-shape.png') }}" alt="Image" />
+                <h2>Projects</h2>
+
             </div>
             <div class="">
-                <h3 style="text-align:center;color:white">لا يوجد كتب</h3>
+                <h3 style="text-align:center;color:white">Not Found Projects</h3>
             </div>
         </div>
     </section>
 </section>
-@elseif(count($books) > 0)
+@elseif(count($projects) > 0)
 <section>
-    <section class="courses-area-three ptb-100 jarallax" data-jarallax='{"speed": 0.3}'>
+    <section class="courses-area-three ptb-100 jarallax" data-jarallax='{"speed": 0.3}' style="background-image: unset">
         <div class="container">
             <div class="section-title white-title">
-                <h2>الكتب</h2>
-                <img src="{{ asset('img/section-title-shape.png') }}" alt="Image" />
+                <h2>Projects</h2>
+
             </div>
             <div class="">
-                @include('books')
+                @include('projects')
             </div>
         </div>
     </section>

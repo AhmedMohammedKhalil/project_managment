@@ -45,7 +45,7 @@
                         <div class="col-12">
                             <div class="form-group">
                                 <label>Confirm Password</label>
-                                <input class="form-control" type="confirm_password" name="confirm_password" wire:model.lazy='confirm_password'
+                                <input class="form-control" type="password" name="confirm_password" wire:model.lazy='confirm_password'
                                     id="confirm_password" />
                                 @error('confirm_password')
                                     <span class="text-danger error">{{ $message }}</span>

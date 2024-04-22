@@ -35,7 +35,7 @@
 
     {{-- <link rel="stylesheet" href="{{ asset('css/rtl.css') }}" /> --}}
 
-    {{-- <link rel="icon" type="image/png" href="{{ asset('img/favicon.png') }}" /> --}}
+    <link rel="icon" type="image/png" href="{{ asset('img/favicon.png') }}" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
         integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -155,12 +155,7 @@
                             <li class="nav-item">
                                 <a href="{{ route('search') }}" class="nav-link">Search</a>
                             </li>
-                            <li class="nav-item">
-                                <a href="{{ route('user.login') }}" class="nav-link">Login</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="{{ route('user.register') }}" class="nav-link">Register</a>
-                            </li>
+
                             @auth('user')
                                 <li class="nav-item">
                                     <a href="#" class="nav-link">
@@ -177,6 +172,13 @@
 
                                     </ul>
                                 </li>
+                            @else
+                            <li class="nav-item">
+                                <a href="{{ route('user.login') }}" class="nav-link">Login</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('user.register') }}" class="nav-link">Register</a>
+                            </li>
                             @endauth
 
                         </ul>

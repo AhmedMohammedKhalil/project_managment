@@ -12,10 +12,11 @@ class Edit extends Component
     $uid,$project;
 
 
-    public function mount($Project_id)
+    public function mount($project_id)
     {
-        $this->project = Project::find($Project_id);
+        $this->project = Project::find($project_id);
         $this->title = $this->project->title;
+        $this->phase = $this->project->phase;
         $this->start_date = $this->project->start_date;
         $this->end_date = $this->project->end_date;
         $this->short_description = $this->project->short_description;
@@ -54,7 +55,7 @@ class Edit extends Component
         if($this->end_date){
             $validateData= array_merge($validateData,['end_date'=>$this->end_date]);
         }
-        $this->Project->update($validateData);
+        $this->project->update($validateData);
         session()->flash('message', "update process Done successfully");
         return redirect()->route('user.project.index');
     }

@@ -2,7 +2,7 @@
 
 namespace App\Http\Livewire;
 
-use App\Models\project;
+use App\Models\Project;
 use Livewire\Component;
 
 class Searching extends Component
@@ -11,18 +11,18 @@ class Searching extends Component
     public $flag = false;
 
     protected $listeners = [
-        'showprojects',
+        'showProjects',
     ];
 
 
-    public function showprojects($projects) {
+    public function showProjects($projects) {
         $this->flag = true;
         if($projects) {
             $ids = [];
             foreach($projects as $project) {
                 $ids[] = $project['id'];
             }
-            $this->projects = project::find($ids);
+            $this->projects = Project::find($ids);
         } else {
             $this->projects = '';
         }
@@ -30,7 +30,7 @@ class Searching extends Component
     }
     public function render()
     {
-        $this->projects = $this->flag == true ? $this->projects : project::all();
+        $this->projects = $this->flag == true ? $this->projects : Project::all();
         return view('livewire.searching');
     }
 }

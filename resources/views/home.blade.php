@@ -33,8 +33,8 @@
                                 <h1 class="wow animate__animated animate__fadeInLeft" data-wow-delay="0.3s">
                                     About Us
                                 </h1>
-                                <p class="wow animate__animated animate__fadeInLeft" data-wow-delay="0.6s">
-                                    Content
+                                <p class="wow animate__animated animate__fadeInLeft" data-wow-delay="0.6s" style="width: 80%">
+                                    We students in Aston Univeristy and make our website For managment Projects for all users with making search feature to find any project.
                                 </p>
                             </div>
                         </div>
@@ -73,11 +73,10 @@
         </div>
     </section>
     @if (count($projects) > 0)
-    <section class="courses-area-three ptb-100 jarallax" data-jarallax='{"speed": 0.3}'>
+    <section class="courses-area-three ptb-100 jarallax" data-jarallax='{"speed": 0.3}' style="background-image: unset">
         <div class="container">
             <div class="section-title white-title">
-                <h2>جميع المشاريع</h2>
-                <img src="{{ asset('img/section-title-shape.png') }}" alt="Image" />
+                <h2>All Projects</h2>
             </div>
             @if(count($projects) > 3)
             <div class="courses-slider-three owl-theme owl-carousel">

@@ -12,7 +12,7 @@ class User extends Authenticatable
     protected $guard = 'user';
 
     protected $fillable = [
-        'username,', 'email', 'password',
+        'username', 'email', 'password',
     ];
 
     /**
@@ -24,10 +24,10 @@ class User extends Authenticatable
         'password',
     ];
 
-    
+
 
     public function projects()
     {
-        return $this->hasMany(Project::class);
+        return $this->hasMany(Project::class,'uid');
     }
 }

@@ -12,7 +12,7 @@
     </style>
 @endpush
 
-@extends('users.layout',['page_name'=> 'إدارة الكتب' ])
+@extends('users.layout',['page_name'=> 'My Projects' ])
 
 
 @section('section')
@@ -26,8 +26,8 @@
                         <div class="coupon-cart">
                             <div class="row">
                                 <div class="col-lg-4 col-sm-5 offset-lg-4 text-center">
-                                    <a href="{{ route('user.book.create') }}" class="default-btn update mx-auto">
-                                        اضف كتاب جديد
+                                    <a href="{{ route('user.project.create') }}" class="default-btn update mx-auto">
+                                        Add New Projects
                                     </a>
                                 </div>
                             </div>
@@ -37,16 +37,17 @@
                                 <thead>
                                     <tr>
                                         <th scope="col">#</th>
-                                        <th scope="col">اسم الكتاب</th>
-                                        <th scope="col">رقم التصنيف</th>
-                                        <th scope="col">الموضوع</th>
-                                        <th scope="col">الاعدادات</th>
+                                        <th scope="col">Title</th>
+                                        <th scope="col">Phase</th>
+                                        <th scope="col">Start Date</th>
+                                        <th scope="col">End Date</th>
+                                        <th scope="col"></th>
 
                                     </tr>
                                 </thead>
-                                @if (count($books) > 0)
+                                @if (count($projects) > 0)
                                     <tbody>
-                                        @foreach ($books as $book)
+                                        @foreach ($projects as $project)
                                             <tr>
                                                 <td class="product-name">
                                                     <a href="javascript:void(0)">
@@ -55,34 +56,36 @@
                                                 </td>
 
                                                 <td class="product-name">
-                                                    <a href="javascript:void(0)">{{ $book->title }}</a>
+                                                    <a href="javascript:void(0)">{{ $project->title }}</a>
                                                 </td>
                                                 <td class="product-name">
-                                                    <a href="javascript:void(0)">{{ $book->classification_number }}</a>
+                                                    <a href="javascript:void(0)">{{ $project->phase }}</a>
                                                 </td>
                                                 <td class="product-name">
-                                                    <a href="javascript:void(0)" style="text-wrap:wrap">{!! nl2br($book->subject) !!}</a>
+                                                    <a href="javascript:void(0)">{{ $project->start_date }}</a>
+                                                </td>
+                                                <td class="product-name">
+                                                    <a href="javascript:void(0)">{{ $project->end_date }}</a>
                                                 </td>
                                                 <td class="product-subtotal">
 
                                                         <div class="row">
                                                             <div class="col-4">
-                                                                <a style="margin-top: 3px" title="عرض" href="#book-{{ $book->id }}" data-bs-toggle="modal"
+                                                                <a style="margin-top: 3px" title="show" href="#project-{{ $project->id }}" data-bs-toggle="modal"
                                                                     >
                                                                     <i class="fa-solid fa-eye"></i>
                                                                 </a>
                                                             </div>
                                                             <div class="col-4">
-                                                                <a style="margin-top: 3px" title="تعديل" href="{{ route('user.book.edit', ['id'=>$book->id]) }}"
-                                                                    >
+                                                                <a style="margin-top: 3px" title="edit" href="{{ route('user.project.edit', ['id'=>$project->id]) }}">
                                                                     <i class="fa-solid fa-pen-to-square"></i>
                                                                 </a>
                                                             </div>
                                                             <div class="col-4">
-                                                                <form class="stingform" action="{{route('user.book.delete',['id'=>$book->id])}}" method="post">
+                                                                <form class="stingform" action="{{route('user.project.delete',['id'=>$project->id])}}" method="post">
                                                                     @csrf
                                                                     @method('delete')
-                                                                    <button class="sting" type="submit" title="حذف" style="float:unset;font-size:20px">
+                                                                    <button class="sting" type="submit" title="delete" style="float:unset;font-size:20px">
                                                                         <i class='bx bx-trash'></i>
                                                                     </button>
                                                                 </form>
@@ -92,6 +95,12 @@
                                             </tr>
                                         @endforeach
                                     </tbody>
+                                @else
+                                <tr>
+                                    <td class="product-name" colspan="5">
+                                        <a href="javascript:void(0)">Not Found Projects</a>
+                                    </td>
+                                </tr>
                                 @endif
                             </table>
 
@@ -104,7 +113,7 @@
 
 </div>
 
-@if (count($books) > 0)
+@if (count($projects) > 0)
     @include('allmodals')
 @endif
 @endsection

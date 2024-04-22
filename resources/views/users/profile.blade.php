@@ -4,7 +4,7 @@
     <div class="row align-items-center">
         <div class="col-lg-4">
             <div class="advisor-img">
-                <img src="{{ asset('img/users/default.jpg') }}" alt="Image">
+                <img src="{{ asset('img/admins/default.jpg') }}" alt="Image">
             </div>
         </div>
         <div class="col-lg-8">

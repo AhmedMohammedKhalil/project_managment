@@ -13,7 +13,7 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        $projects = auth('user')->user()->projects->get();
+        $projects = auth('user')->user()->projects;
         return view('users.projects.index',compact('projects'));
     }
 
