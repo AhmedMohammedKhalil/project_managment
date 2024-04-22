@@ -23,11 +23,6 @@ class ChangePassword extends Component
         'confirm_password' => ['required', 'string', 'min:8','same:password'],
     ];
 
-    protected $messages = [
-        'required' => 'ممنوع ترك الحقل فارغاَ',
-        'min' => 'لابد ان يكون الحقل مكون على الاقل من 8 خانات',
-        'same' => 'لابد ان يكون الباسورد متطابق',
-    ];
 
 
     public function edit() {
