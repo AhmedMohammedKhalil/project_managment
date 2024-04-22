@@ -14,55 +14,55 @@ class ProjectSeeder extends Seeder
     public function run(): void
     {
         DB::table('projects')->insert([
-            'title' => 'مشروع 1',
+            'title' => 'project 1',
             'start_date' => now(),
             'end_date' => date('Y-m-d', strtotime('+1 day')),
-            'short_description' => 'وصف قصير عن مشروع 1',
+            'short_description' => 'short description about project 1',
             'phase' => 'design',
             'uid' => '1',
         ]);
 
         DB::table('projects')->insert([
-            'title' => 'مشروع 2',
+            'title' => 'project 2',
             'start_date' => now(),
             'end_date' => date('Y-m-d', strtotime('+1 day')),
-            'short_description' => 'وصف قصير عن مشروع 2',
+            'short_description' => 'short description about project 2',
             'phase' => 'development',
             'uid' => '1',
         ]);
 
         DB::table('projects')->insert([
-            'title' => 'مشروع 3',
+            'title' => 'project 3',
             'start_date' => now(),
             'end_date' => date('Y-m-d', strtotime('+1 day')),
-            'short_description' => 'وصف قصير عن مشروع 3',
+            'short_description' => 'short description about project 3',
             'phase' => 'testing',
             'uid' => '2',
         ]);
 
         DB::table('projects')->insert([
-            'title' => 'مشروع 4',
+            'title' => 'project 4',
             'start_date' => now(),
             'end_date' => date('Y-m-d', strtotime('+1 day')),
-            'short_description' => 'وصف قصير عن مشروع 4',
+            'short_description' => 'short description about project 4',
             'phase' => 'development',
             'uid' => '2',
         ]);
 
         DB::table('projects')->insert([
-            'title' => 'مشروع 5',
+            'title' => 'project 5',
             'start_date' => now(),
             'end_date' => now(),
-            'short_description' => 'وصف قصير عن مشروع 5',
+            'short_description' => 'short description about project 5',
             'phase' => 'complete',
             'uid' => '3',
         ]);
 
         DB::table('projects')->insert([
-            'title' => 'مشروع 6',
+            'title' => 'project 6',
             'start_date' => now(),
             'end_date' => date('Y-m-d', strtotime('+1 day')),
-            'short_description' => 'وصف قصير عن مشروع 6',
+            'short_description' => 'short description about project 6',
             'phase' => 'development',
             'uid' => '3',
         ]);
