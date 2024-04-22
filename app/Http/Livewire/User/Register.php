@@ -17,22 +17,6 @@ class Register extends Component
     public $username, $email, $password, $confirm_password, $user_id;
 
 
-    protected $messages = [
-        'required' => 'ممنوع ترك الحقل فارغاَ',
-        'min' => 'لابد ان يكون الحقل مكون على الاقل من 8 خانات',
-        'email' => 'هذا البريد الإلكترونى غير صحيح',
-        'name.max' => 'لابد ان يكون الحقل مكون على الاكثر من 50 خانة',
-        'email.unique' => 'هذا البريد الإلكترونى مسجل فى الموقع',
-        'same' => 'لابد ان يكون كلمة السر متطابق',
-        'image' => 'لابد ان يكون الملف صورة',
-        'mimes' => 'لابد ان يكون الصورة jpeg,jpg,png',
-        'image.max' => 'يجب ان تكون الصورة اصغر من 2 ميجا',
-        'civil_number.unique' => 'هذا الرقم المدنى مسجل فى الموقع',
-        'civil_number.max' => 'لابد ان يكون الرقم المدنى 12 رقم',
-        'civil_number.min' => 'لابد ان يكون الرقم المدنى 12 رقم',
-        'phone.max' => 'لابد ان يكون الرقم المدنى 8 رقم',
-        'phone.min' => 'لابد ان يكون الرقم المدنى 8 رقم'
-    ];
 
     protected $rules = [
         'username' => ['required', 'string', 'max:50'],
@@ -52,12 +36,12 @@ class Register extends Component
         User::create($validatedata);
         if(Auth::guard('user')->attempt(['email' => $this->email,'password' => $this->password])){
 
-            session()->flash('message', "تم دخولك ينجاح");
+            session()->flash('message',"you login successfully");
             return redirect()->route('home');
         }else{
-            session()->flash('error', 'هناك خطا فى الايميل او الباسورد');
+            session()->flash('error', 'invalid Email or password');
         }
-        session()->flash('message', "تم إتمام العملية بنجاح");
+        session()->flash('message', "Process done successfully");
         return redirect()->route('user.profile');
     }
 
