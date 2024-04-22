@@ -40,7 +40,7 @@
         integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <title>{{ config('app.name', 'مكتبة غزية بنت جابر') }}</title>
+    <title>{{ config('app.name', 'project Managment') }}</title>
 
     @livewireStyles
     <style>
@@ -59,7 +59,8 @@
         }
 
         .page-title-area {
-            margin-top: 100px
+            margin-top: 60px;
+            background-image: url("{{ asset('img/data/sliders/slider1.jpg') }}") !important;
         }
 
         .nice-select span {
@@ -134,68 +135,50 @@
 
         <div class="mobile-nav">
             <a href="{{ route('home') }}" class="logo" style="top:11px">
-                <img style="height: 50px;width:70px" src="{{ asset('img/logo1.jpg') }}" class="main-logo" alt="Logo" />
+                <h1>Project Management</h1>
             </a>
         </div>
         <div class="main-nav">
             <div class="container-fluid">
                 <nav class="navbar navbar-expand-md">
 
-                    <a class="navbar-brand" href="{{ route('home') }}" style="max-width: 130px">
-                        <img style="height: 80px;width:100px" src="{{ asset('img/logo2.jpg') }}" class="main-logo" alt="Logo" />
+                    <a href="{{ route('home') }}" class="logo" style="top:11px">
+                        <h1>Project Management</h1>
                     </a>
 
-                    <div class="collapse navbar-collapse m-auto flex-column">
+                    <div class="collapse navbar-collapse mean-menu justify-content-end">
 
-                        <h4>بوابة الأفق للمعلومات</h4>
-                        <h4>مكتبة غزية بنت جابر</h4>
-
-                    </div>
-                    <a class="navbar-brand" href="{{ route('home') }}" style="max-width: 130px">
-                        <img style="height: 80px;width:100px" src="{{ asset('img/logo1.jpg') }}" class="main-logo" alt="Logo" />
-                    </a>
-
-                </nav>
-            </div>
-        </div>
-
-        <div class="main-nav">
-            <div class="container-fluid">
-                <nav class="navbar navbar-expand-md">
-
-                    <div class="collapse navbar-collapse mean-menu">
-
-                        <ul class="navbar-nav m-auto">
-
+                        <ul class="navbar-nav flex-row-reverse">
+                            <li class="nav-item">
+                                <a href="{{ route('home') }}" class="nav-link">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('search') }}" class="nav-link">Search</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('user.login') }}" class="nav-link">Login</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('user.register') }}" class="nav-link">Register</a>
+                            </li>
                             @auth('user')
                                 <li class="nav-item">
                                     <a href="#" class="nav-link">
-                                        {{ Auth::guard('user')->user()->name }}
+                                        {{ Auth::guard('user')->user()->username }}
                                         <i class="bx bx-chevron-down"></i>
                                     </a>
                                     <ul class="dropdown-menu">
                                         <li class="nav-item">
-                                            <a href="{{ route('user.dashboard') }}" class="nav-link">لوحة التحكم</a>
+                                            <a href="{{ route('user.profile') }}" class="nav-link">Profile</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="{{ route('user.logout') }}" class="nav-link">خروج</a>
+                                            <a href="{{ route('user.logout') }}" class="nav-link">Logout</a>
                                         </li>
 
                                     </ul>
                                 </li>
                             @endauth
-                            <li class="nav-item">
-                                <a href="{{ route('home') }}" class="nav-link">الرئيسية</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="{{ route('home') }}/#about" class="nav-link">من نحن</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="{{ route('home') }}/#services" class="nav-link">خدماتنا</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="{{ route('search') }}" class="nav-link">بحث</a>
-                            </li>
+
                         </ul>
 
                     </div>
@@ -214,12 +197,12 @@
             <div class="copyright-wrap">
                 <p>
                     2024 <i class="bx bx-copyright"></i>
-                    <a href="{{ route('home') }}" style="color: white">مكتبة غزية بنت جابر</a>
+                    <a href="{{ route('home') }}" style="color: white">Project Management</a>
                 </p>
             </div>
         </div>
     </footer>
-    <div class="go-top">
+    <div class="go-top" style="left: 3%;right:unset">
         <i class="bx bx-chevrons-up"></i>
         <i class="bx bx-chevrons-up"></i>
     </div>

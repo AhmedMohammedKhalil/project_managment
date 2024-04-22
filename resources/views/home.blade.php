@@ -1,40 +1,27 @@
 @extends('layouts.app')
 @push('css')
     <style>
-        .event-img .main-img{
-            border-radius: 50%;
-            margin: auto;
-            display: block;
-            margin-top: 78px;
-            height: 400px;
-            width: 400px;
+        .page-title-area {
+            height: 800px;
         }
-        .event-area-two.event-area-style .single-tutor {
-            border-radius: 10%;
-        }
-        .event-area-two.event-area-style .single-tutor.three {
-            margin-top: 0px;
+        .page-title-area::before{
+            background-color: unset !important
         }
     </style>
 @endpush
 @section('main')
 
-    <section class="feedback-area f5f6fa-bg-color" style="margin-top: 150px">
-        <div class="landing-slider owl-theme owl-carousel">
-            @foreach ($sliders as $slider)
-                <div class="feedback-item" style="background-image: url('{{ asset('img/sliders/'.$slider->id.'/'.$slider->image) }}')">
-                    <div class="feedback-title">
-                        <h3>{{ $slider->title }}</h3>
-                        <span>{{ $slider->content }}</span>
-                    </div>
-                </div>
-            @endforeach
+    <div class="page-title-area"  style="margin-top: 60px; background-image:url({{ asset('img/data/sliders/slider1.jpg') }})">
+        <div class="container">
+            <div class="page-title-content">
+            </div>
         </div>
-    </section>
+    </div>
+
 
     <section class="banner-area-two pt-100 pb-70" id="about">
         <div class="section-title">
-            <h2>{{ $about->heading }}</h2>
+            <h2>About Us</h2>
             <img src="{{ asset('img/section-title-shape.png') }}" alt="Image" />
         </div>
         <div class="d-table">
@@ -44,16 +31,16 @@
                         <div class="col-lg-7">
                             <div class="banner-content " style="margin: 0">
                                 <h1 class="wow animate__animated animate__fadeInLeft" data-wow-delay="0.3s">
-                                    {{ $about->title }}
+                                    About Us
                                 </h1>
                                 <p class="wow animate__animated animate__fadeInLeft" data-wow-delay="0.6s">
-                                    {{ $about->content }}
+                                    Content
                                 </p>
                             </div>
                         </div>
                         <div class="col-lg-5">
                             <div style="margin-top: unset" class="banner-img wow animate__animated animate__fadeInRight" data-wow-delay="0.3s">
-                                <img style="height: 500px;border-radius:10%" src="{{ asset('img/abouts/'.$about->image) }}" alt="Image" />
+                                <img style="height: 500px;border-radius:10%" src="{{ asset('img/abouts/about.jpg') }}" alt="Image" />
                                 <div class="banner-shape-1">
                                     <img src="{{ asset('img/banner-img/shape-img-1.png') }}" alt="Image" />
                                 </div>
@@ -85,59 +72,24 @@
             </div>
         </div>
     </section>
-    @if (count($books) > 0)
+    @if (count($projects) > 0)
     <section class="courses-area-three ptb-100 jarallax" data-jarallax='{"speed": 0.3}'>
         <div class="container">
             <div class="section-title white-title">
-                <h2>جميع الكتب</h2>
+                <h2>جميع المشاريع</h2>
                 <img src="{{ asset('img/section-title-shape.png') }}" alt="Image" />
             </div>
-            @if(count($books) > 3)
+            @if(count($projects) > 3)
             <div class="courses-slider-three owl-theme owl-carousel">
-                @include('allbooks')
+                @include('allprojects')
             </div>
             @else
-                @include('books')
+                @include('projects')
             @endif
         </div>
     </section>
     @endif
-    <section class="event-area-two event-area-style ptb-100" id="services">
-        <div class="container">
-            <div class="section-title" style="text-align: center;margin:0 auto 30px">
-                <h2>{{ $service->content }}</h2>
-                <img src="{{ asset('img/section-title-shape.png') }}" alt="Image" />
-            </div>
-            <div class="row align-items-center">
-                <div class="col-lg-6">
-                    <div class="event-img">
-                        <img class="main-img" src="{{ asset('img/services/'.$service->id.'/'.$service->image) }}" alt="Image">
-                        <div class="event-shape-1 rotated">
-                            <img src="{{ asset('img/event-img/event-shape-1.png') }}" alt="Image">
-                        </div>
-                        <div class="event-shape-2">
-                            <img src="{{ asset('img/event-img/event-shape-2.png') }}" alt="Image">
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-
-                    <div class="row">
-                        @foreach($services as $service)
-                            <div class="col-lg-6 col-sm-6">
-                                <div class="single-tutor {{ $service->type }}">
-                                    <img style="height: 50px;width:50px" src="{{ asset('img/services/'.$service->id.'/'.$service->image) }}" alt="">
-                                    <p>{{ $service->content }}</p>
-                                </div>
-                            </div>
-                        @endforeach
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    @if (count($books) > 0)
+    @if (count($projects) > 0)
         @include('allmodals')
     @endif
 @endsection

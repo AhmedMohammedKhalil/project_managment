@@ -26,10 +26,9 @@ Route::middleware(['guest:user'])->group(function () {
 
 
 Route::middleware(['auth:user'])->name('user.')->prefix('user')->group(function () {
-    Route::get('/dashboard', 'UserController@dashboard')->name('dashboard');
     Route::get('/profile', 'UserController@profile')->name('profile');
-    Route::get('/settings', 'UserController@settings')->name('settings');
-    Route::get('/changePassword', 'UserController@changePassword')->name('changePassword');
+    // Route::get('/settings', 'UserController@settings')->name('settings');
+    // Route::get('/changePassword', 'UserController@changePassword')->name('changePassword');
     Route::get('/logout', 'UserController@logout')->name('logout');
 
 
