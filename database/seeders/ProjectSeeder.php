@@ -16,7 +16,7 @@ class ProjectSeeder extends Seeder
         DB::table('projects')->insert([
             'title' => 'مشروع 1',
             'start_date' => now(),
-            'end_date' => now(),
+            'end_date' => date('Y-m-d', strtotime('+1 day')),
             'short_description' => 'وصف قصير عن مشروع 1',
             'phase' => 'design',
             'uid' => '1',
@@ -25,7 +25,7 @@ class ProjectSeeder extends Seeder
         DB::table('projects')->insert([
             'title' => 'مشروع 2',
             'start_date' => now(),
-            'end_date' => now(),
+            'end_date' => date('Y-m-d', strtotime('+1 day')),
             'short_description' => 'وصف قصير عن مشروع 2',
             'phase' => 'development',
             'uid' => '1',
@@ -34,7 +34,7 @@ class ProjectSeeder extends Seeder
         DB::table('projects')->insert([
             'title' => 'مشروع 3',
             'start_date' => now(),
-            'end_date' => now(),
+            'end_date' => date('Y-m-d', strtotime('+1 day')),
             'short_description' => 'وصف قصير عن مشروع 3',
             'phase' => 'testing',
             'uid' => '2',
@@ -43,7 +43,7 @@ class ProjectSeeder extends Seeder
         DB::table('projects')->insert([
             'title' => 'مشروع 4',
             'start_date' => now(),
-            'end_date' => now(),
+            'end_date' => date('Y-m-d', strtotime('+1 day')),
             'short_description' => 'وصف قصير عن مشروع 4',
             'phase' => 'development',
             'uid' => '2',
@@ -61,7 +61,7 @@ class ProjectSeeder extends Seeder
         DB::table('projects')->insert([
             'title' => 'مشروع 6',
             'start_date' => now(),
-            'end_date' => now(),
+            'end_date' => date('Y-m-d', strtotime('+1 day')),
             'short_description' => 'وصف قصير عن مشروع 6',
             'phase' => 'development',
             'uid' => '3',

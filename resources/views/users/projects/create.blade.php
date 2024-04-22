@@ -1,5 +1,5 @@
-@extends('users.layout',['page_name'=>'إضافة كتاب جديد'])
+@extends('users.layout',['page_name'=>'إضافة مشروع جديد'])
 
 @section('section')
-    <livewire:user.project.add/>
+    <livewire:user.project.add>
 @endsection
